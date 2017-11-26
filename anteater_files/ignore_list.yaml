@@ -18,4 +18,4 @@ file_ignore:
   - '.md'
 
 project_exceptions:
-    - antest: anteater_files/antest.yaml
+    - circle-ci: anteater_files/circle-ci.yaml
