@@ -30,11 +30,11 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            pip install virtualenv
+            #pip install virtualenv
             virtualenv ~/venv
             . ~/venv/bin/activate
             ~/venv/bin/pip install -r requirements.txt
-            git diff --name-only HEAD^ > ./patch
+            git diff --name-only HEAD^ > ~repo/patchset
 
       - save_cache:
           paths:
@@ -46,7 +46,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            anteater --project ci-circle --patchset ./patch
+            anteater --project ci-circle --patchset ~repo/patchset
 
       - store_artifacts:
           path: test-reports
