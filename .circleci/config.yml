@@ -30,11 +30,9 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            pip python-virtualenv
+            pip install virtualenv
             virtualenv ~/venv
             . ~/venv/bin/activate
-            ~/venv/bin/pip install -r ${ANTEATER_HOME}/requirements.txt
-            ~/venv/bin/python ${ANTEATER_HOME}/setup.py install
             ~/venv/bin/pip install -r requirements.txt
             git diff --name-only HEAD^ > ./patch
 
