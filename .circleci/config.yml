@@ -34,7 +34,7 @@ jobs:
             virtualenv ~/venv
             . ~/venv/bin/activate
             ~/venv/bin/pip install -r requirements.txt
-            git diff --name-only HEAD^ > ~repo/patchset
+            git diff --name-only HEAD^ > ~/repo/patchset
 
       - save_cache:
           paths:
@@ -46,7 +46,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            anteater --project ci-circle --patchset ~repo/patchset
+            anteater --project ci-circle --patchset ~/repo/patchset
 
       - store_artifacts:
           path: test-reports
